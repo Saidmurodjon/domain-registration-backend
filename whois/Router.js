@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const domain = require('./controller')
+const whois = require('./controller')
 
 
 // post
-router.route('/').post(domain.Post)
+router.route('/').get(whois.Whois)
 
 
 

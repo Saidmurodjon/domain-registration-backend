@@ -7,7 +7,7 @@ const router = express.Router();
 const user = require("../auth/Router");
 const hosting = require("../hosting/Router");
 const pochta = require("../pochta/Router");
-const domain = require("../domain/Router");
+const whois = require("../whois/Router");
 
 // router
 // router.use('/login',auth)
@@ -15,6 +15,6 @@ const domain = require("../domain/Router");
 router.use("/user", user);
 router.use("/hosting", hosting);
 router.use("/pochta", pochta);
-router.use("/domain", domain);
+router.use("/whois", whois);
 
 module.exports = router;
