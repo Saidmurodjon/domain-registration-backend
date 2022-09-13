@@ -30,11 +30,13 @@ async function Register(req, res) {
         if (results.length > 0) {
           return res.status(400).send({
             message: "That email is already taken",
+            type:"email"
           });
         } else if (password.length < 8) {
           return res.status(400).send({
             message: "Password too short",
-          });
+            type:"password"
+              });
         }
         // let hashedPassword = await bcrypt.hash(password, 8);
         // console.log(hashedPassword);

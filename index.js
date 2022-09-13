@@ -5,7 +5,7 @@ const cors = require("cors");
 const { PORT } = require("./config");
 app.use(express.json());
 app.use(cors());
-// to bind MySQL Data Base 
+// to bind MySQL DataBase 
 require("./data/MySQL")();
 // main router
 app.use("/", router);
