@@ -1,11 +1,12 @@
 const mysql = require("mysql");
-const { DB } = require("../config");
-const {parseUri } = require('mysql-parse')
-const config=parseUri(DB)
+const { DB, DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME } = require("../config");
+const { parseUri } = require("mysql-parse");
+const config = parseUri(DB);
+console.log(DB_HOST);
 const db = mysql.createConnection({
-  host: config.host,
-  user: config.user,
-  password: config.password,
-  database: config.database,
+  host: DB_HOST || config.host,
+  user: DB_USERNAME || config.user,
+  password: DB_PASSWORD || config.password,
+  database: DB_NAME || config.database,
 });
 module.exports = db;
