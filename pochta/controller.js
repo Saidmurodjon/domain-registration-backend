@@ -1,19 +1,21 @@
 // const db = require("../data/DB");
-const mysql = require('mysql');
+const mysql = require("mysql");
 
 const db = mysql.createConnection({
   host: process.env.DATABASE_HOST,
   user: process.env.DATABASE_USERNAME,
   password: process.env.DATABASE_PASSWORD,
-  database: process.env.DATABASE_NAME
+  database: process.env.DATABASE_NAME,
 });
 console.log(db);
 async function Get(req, res) {
   try {
-    // db.query("SELECT * FROM pochtas", async (error, results) => {
-    //   return res.status(200).send(results);
-    // });
-    return res.status(200).send(db)
+    db.query("SELECT * FROM pochtas", async (error, results) => {
+      if (error) {
+        return res.status(400).send(error);
+      }
+      return res.status(200).send(results);
+    });
   } catch (error) {
     console.log(error);
   }
