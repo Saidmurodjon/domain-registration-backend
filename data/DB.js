@@ -5,7 +5,7 @@ const confige=parseUri(DB)
 // console.log(confige)
 const db = mysql.createPool({
   connectionLimit: 100,
-  host:confige.host,
+  host:confige.host||confige.host+":"+confige.port,
   user: confige.user,
   password:  confige.password,
   database: confige.database,
