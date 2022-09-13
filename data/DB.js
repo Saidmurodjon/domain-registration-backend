@@ -6,5 +6,6 @@ const db = mysql.createConnection({
   user: DB_USERNAME,
   password:  DB_PASSWORD,
   database: DB_NAME,
+  connectionLimit: 100
 });
 module.exports = db;

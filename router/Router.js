@@ -21,6 +21,8 @@ router.use("/pochta", pochta);
 router.use("/whois", whois);
 router.use("/contact", contact);
 router.use("/order", order);
-    
+router.get("/", (req, res) => {
+    res.send("Backend is working...");
+  });   
 
 module.exports = router;

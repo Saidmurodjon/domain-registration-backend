@@ -8,7 +8,7 @@ app.use(cors());
 // to bind MySQL DataBase 
 require("./data/MySQL")();
 // main router
-app.use("/", router);
+app.use("/", router ,);
 
 app.listen(PORT, () => {
   console.log(`${PORT}'s port is working`);

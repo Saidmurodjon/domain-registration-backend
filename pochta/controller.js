@@ -1,13 +1,13 @@
-// const db = require("../data/DB");
-const mysql = require("mysql");
+const db = require("../data/DB");
+// const mysql = require("mysql");
 
-const db = mysql.createConnection({
-  host: process.env.DATABASE_HOST,
-  user: process.env.DATABASE_USERNAME,
-  password: process.env.DATABASE_PASSWORD,
-  database: process.env.DATABASE_NAME,
-});
-console.log(db);
+// const db = mysql.createConnection({
+//   host: process.env.DATABASE_HOST,
+//   user: process.env.DATABASE_USERNAME,
+//   password: process.env.DATABASE_PASSWORD,
+//   database: process.env.DATABASE_NAME,
+// });
+// console.log(db);
 async function Get(req, res) {
   try {
     db.query("SELECT * FROM pochtas", async (error, results) => {
@@ -27,6 +27,9 @@ async function Get(req, res) {
 async function Post(req, res) {
   try {
     db.query("INSERT INTO pochtas SET ?", req.body, async (error, results) => {
+      if (error) {
+        return res.status(400).send(error);
+      }
       return res.status(201).send(results);
     });
   } catch (error) {
