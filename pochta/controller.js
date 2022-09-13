@@ -10,9 +10,10 @@ const db = mysql.createConnection({
 console.log(db);
 async function Get(req, res) {
   try {
-    db.query("SELECT * FROM pochtas", async (error, results) => {
-      return res.status(200).send(results);
-    });
+    // db.query("SELECT * FROM pochtas", async (error, results) => {
+    //   return res.status(200).send(results);
+    // });
+    return res.status(200).send(db)
   } catch (error) {
     console.log(error);
   }
