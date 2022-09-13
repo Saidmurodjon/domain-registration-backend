@@ -1,4 +1,13 @@
-const db = require("../data/DB");
+// const db = require("../data/DB");
+const mysql = require('mysql');
+
+const db = mysql.createConnection({
+  host: process.env.DATABASE_HOST,
+  user: process.env.DATABASE_USERNAME,
+  password: process.env.DATABASE_PASSWORD,
+  database: process.env.DATABASE_NAME
+});
+console.log(db);
 async function Get(req, res) {
   try {
     db.query("SELECT * FROM pochtas", async (error, results) => {
