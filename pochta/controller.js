@@ -14,7 +14,11 @@ async function Get(req, res) {
       if (error) {
         return res.status(400).send(error);
       }
-      return res.status(200).send(results);
+      if (results) {
+        return res.status(200).send(results);
+      } else {
+        return res.status(205).send("results");
+      }
     });
   } catch (error) {
     console.log(error);
